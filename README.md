@@ -1,1 +1,0 @@
-# UnivariateLinearRegression_MANUAL
