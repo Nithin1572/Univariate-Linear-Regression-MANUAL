@@ -38,6 +38,13 @@ class UVLRM:
         self.m = len(trainData)
         self.X = trainData['x'].tolist()
         self.Y = trainData['y'].tolist()
+        maxElementX = max(self.X)
+        minElementX = min(self.X)
+        maxElementY = max(self.Y)
+        minElementY = min(self.Y)
+        for i in range(self.m):
+            self.X[i] = (self.X[i] - minElementX)/(maxElementX - minElementX)
+            self.Y[i] = (self.Y[i] - minElementY)/(maxElementY - minElementY)
         self.gradientDescent()
     
     def predict(self, x):
