@@ -26,7 +26,7 @@ class UVLRM:
         dj_db = dj_db / self.m
         return dj_dw, dj_db
 
-    def gradientDescent(self):
+    def batchGradientDescent(self):
         for i in range(0, self.numOfIterations):
             dj_dw, dj_db = self.computeGradient()
             self.w = self.w - self.alpha * dj_dw 
@@ -45,7 +45,7 @@ class UVLRM:
         for i in range(self.m):
             self.X[i] = (self.X[i] - minElementX)/(maxElementX - minElementX)
             self.Y[i] = (self.Y[i] - minElementY)/(maxElementY - minElementY)
-        self.gradientDescent()
+        self.batchGradientDescent()
     
     def predict(self, x):
         print(f"Prediction = {self.w * x + self.b}")
